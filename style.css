@@ -1,54 +1,62 @@
 @charset "UTF-8";
 
-* {
-    margin: 0px;
-    padding: 0px;
-}
-
 html,
 body {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgb(122, 122, 122);
-}
-
-header>div#logoSite {
-    background-color: rgb(0, 78, 247);
-    width: 100vw;
-    height: 50px;
-}
-
-header>div#nav {
-    background-color: white;
-    width: 100vw;
-    height: 50px;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background-color: rgb(95, 45, 143);
 }
 
 
-section#sec-principal {
-    margin: auto;
-    width: 350px;
-    text-align: justify;
+.container {
+    display: grid;
+    /*Inicia o grid*/
+    grid-template-columns: 2fr 1fr;
+    /*Define a quantidade de colunas, ex: 3fr 1fr, duas colunas com a primeira tendo 3 partes e a ultima uma parte*/
+    grid-template-rows: 20vh 70vh 10vh;
+    /*Define a quantidade de linhas, ex 20vh 70vh 10vh, são 3 linhas com cada linha tendo 20 da visao da tela de altura, 70, 10*/
+    /*grid-gap: 20px;   Gera espaço entre os itens*/
+    grid-template-areas: "h h"
+        "m a"
+        "f f"
 }
 
-main article section#sec-principal>div#ntc-principal {
-    margin-top: 50px;
-    background-color: rgb(165, 165, 165);
-    width: 350px;
-    height: 200px;
-    margin-bottom: 20px;
+/*
+Formas de fazer:
+grid-column-start:value; começa
+grid-column-end:value; termina
+
+grid-column: value/value; começa/termina
+
+grid-row-start:value; começa
+grid-row-start:value; termina
+
+grid-row:value/value; começa/termina
+
+grid-template-areas: "h h"
+                    "m a"
+                    "f f"
+ele indica o que vai em cada linha e coluna é praticamente uma tabela!
+é você coloca a propriedade grid-area com o nome da linha ex: h,m,a,f ...
+*/
+
+header {
+    background-color: yellow;
+    grid-area: h;
 }
 
-section#sec-secundarias {
-    padding-left: 20px;
-    text-align: center;
-    font-size: 0.5em;
-}
-
-main article section#sec-secundarias>div.ntc-secundaria {
-    display: flexbox;
-    margin: 20px;
-    width: 150px;
-    height: 100px;
+main {
     background-color: green;
+    grid-area: m;
+}
+
+aside {
+    background-color: aquamarine;
+    grid-area:a;
+}
+
+footer {
+    background-color: red;
+    grid-area:f;
 }
